@@ -1,28 +1,17 @@
-import * as React from "react"
-import { Link } from "gatsby"
+//Sample Layout Component - src/components/layout 📁
+import React from "react"
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
-
+const Layout = ({children}) => {
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <div>
+      <nav className="navigation-bar">
+         <ul>
+           <li><a href="#home">Home</a></li>
+           <li><a href="#about">About</a></li>
+           <li><a href="/blog">Blog</a></li>
+           <li><a href="#contact">Contact</a></li>
+     </ul>
+      </nav>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
@@ -32,5 +21,4 @@ const Layout = ({ location, title, children }) => {
     </div>
   )
 }
-
-export default Layout
+export default Layout;
